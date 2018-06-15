@@ -1,3 +1,49 @@
 <div>
     <button mat-button routerLink="/companies">Return to list</button>
 </div>
+<br/>
+<div *ngIf="company">
+  
+  <mat-form-field>
+    <input matInput placeholder="ID" [(ngModel)]="company.id" disabled>
+  </mat-form-field>
+  <br/>
+  <mat-form-field>
+    <input matInput required placeholder="Name" [(ngModel)]="company.name">
+  </mat-form-field>
+  <br/>
+  <mat-form-field>
+    <input matInput required placeholder="Address" [(ngModel)]="company.address">
+  </mat-form-field>
+  <br/>
+  <mat-form-field>
+    <input matInput required placeholder="City" [(ngModel)]="company.city">
+  </mat-form-field>
+  <br/>
+  <mat-form-field>
+    <input matInput required placeholder="Country" [(ngModel)]="company.country">
+  </mat-form-field>
+  <br/>
+  <mat-form-field>
+    <input matInput placeholder="Email" [(ngModel)]="company.email">
+  </mat-form-field>
+  <br/>
+  <mat-form-field>
+    <input matInput placeholder="Phone Number" [(ngModel)]="company.phoneNumber">
+  </mat-form-field>
+  <br/>
+  <mat-chip-list *ngIf="!createMode">
+      <mat-chip *ngFor="let owner of company.owners">{{owner.name}}</mat-chip>
+  </mat-chip-list>
+  <br/>
+  <mat-form-field>
+      <mat-select [(value)]="selectedOwner" placeholder="Add a beneficial owner">
+        <mat-option *ngFor="let owner of owners" [value]="owner">
+          {{owner.name}}
+        </mat-option>
+      </mat-select>
+  </mat-form-field>
+  <button mat-button (click)="addOwner()">ADD</button>
+  <br/>
+</div>
+<button mat-button (click)="saveCompany()">SAVE</button>

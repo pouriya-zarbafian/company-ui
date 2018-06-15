@@ -4,6 +4,8 @@ import { NgModule } from '@angular/core';
 
 import { HttpModule, RequestOptions } from '@angular/http';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { CompanyMaterialModule } from './company-material/company-material.module';
 
 import { AppComponent } from './app.component';
@@ -23,6 +25,8 @@ import { CompanyEditComponent } from './company-edit/company-edit.component';
     BrowserModule,
     BrowserAnimationsModule,
     HttpModule,
+    FormsModule,
+    ReactiveFormsModule,
     CompanyMaterialModule,
     AppRoutingModule
   ],

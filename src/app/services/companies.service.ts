@@ -6,6 +6,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
 import { Company } from '../data/Company';
+import { Owner } from '../data/Owner';
 
 @Injectable()
 export class CompaniesService {
@@ -21,6 +22,19 @@ export class CompaniesService {
     return this.http
       .get(
         this.apiHost + '/api/companies'
+      )
+      .map(
+      resp => resp.json()
+      );
+  }
+  
+  listAllOwners(): Observable<Owner[]> {
+
+    console.log('CompaniesService.listAllOwners');
+
+    return this.http
+      .get(
+        this.apiHost + '/api/owners'
       )
       .map(
       resp => resp.json()
@@ -46,6 +60,23 @@ export class CompaniesService {
 
     return this.http
       .post(this.apiHost + '/api/companies', company)
+      .map(
+      resp => {
+        if (resp.status == 201) {
+          return resp.json();
+        }
+        else {
+          throw new Error(resp.statusText);
+        }
+      });
+  }
+
+  addOwner(company: Company, owner: Owner): Observable<Company> {
+
+    console.log('CompaniesService.addOwner: ' + company.name);
+
+    return this.http
+      .post(this.apiHost + '/api/companies/' + company.id + '/owners', owner)
       .map(
       resp => {
         if (resp.status == 201) {
@@ -94,4 +125,6 @@ export class CompaniesService {
         }
       });
   }
+
+
 }

@@ -7,6 +7,6 @@ export class Company {
     city: string;
     country: string;
     email: string;
-    phone: string;
+    phoneNumber: string;
     owners: Owner[];
 }
