@@ -37,7 +37,7 @@
   </mat-chip-list>
   <br/>
   <mat-form-field>
-      <mat-select [(value)]="selectedOwner" placeholder="Add a beneficial owner">
+      <mat-select [(value)]="selectedOwner" placeholder="Add owner">
         <mat-option *ngFor="let owner of owners" [value]="owner">
           {{owner.name}}
         </mat-option>

@@ -11,7 +11,8 @@ import { Owner } from '../data/Owner';
 @Injectable()
 export class CompaniesService {
 
-  apiHost = 'http://localhost:8080/';
+  //apiHost = 'http://localhost:8080/'; dev mode
+  apiHost = '';
 
   constructor(private http: Http) { }
 

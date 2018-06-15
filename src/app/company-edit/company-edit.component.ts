@@ -114,7 +114,7 @@ export class CompanyEditComponent implements OnInit {
           this.openSnackBar('Owner added successfully!', '');
         },
         error => {
-          this.openSnackBar('', 'Error while adding owner.');
+          this.openSnackBar('', 'Could not add owner.');
         }
       );
   }
