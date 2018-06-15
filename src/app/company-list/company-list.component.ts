@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+       
 import { Company } from '../data/Company';
 import { CompaniesService } from '../services/companies.service';
 
@@ -10,16 +10,18 @@ import { CompaniesService } from '../services/companies.service';
 })
 export class CompanyListComponent implements OnInit {
 
-  companies: Company[];
+  companies: Company[] = [];
 
-  constructor(private companiesService: CompaniesService) { }
+  constructor(private companiesService: CompaniesService) {
+    
+  }
 
   ngOnInit() {
     this.companiesService
-    .listAll()
-    .subscribe(
-      data => {
-        this.companies = data;
-      });
+      .listAll()
+      .subscribe(
+        data => {
+          this.companies = data;
+        });
   }
 }

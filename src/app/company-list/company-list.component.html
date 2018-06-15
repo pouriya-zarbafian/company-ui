@@ -1,4 +1,17 @@
-<div>List of Companies</div>
+<div>
+  <h3>List of Companies</h3>
+</div>
 <mat-list>
-  <mat-list-item *ngFor="let company of companies">{{company.name}}</mat-list-item>
- </mat-list>
+  <table>
+    <tr *ngFor="let company of companies"><td>
+      <mat-list-item><div class="cmp-link" routerLink="/companies/edit/{{company.id}}">{{company.name}}</div></mat-list-item>
+    </td>
+    <td>
+        <button mat-button>DELETE</button>
+    </td>
+  </tr>
+  </table>
+</mat-list>
+
+<br/>
+<button mat-button routerLink="/companies/edit/0">CREATE</button>

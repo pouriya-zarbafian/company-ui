@@ -10,6 +10,8 @@ import { Company } from '../data/Company';
 @Injectable()
 export class CompaniesService {
 
+  apiHost = 'http://localhost:8080/';
+
   constructor(private http: Http) { }
 
   listAll(): Observable<Company[]> {
@@ -18,7 +20,7 @@ export class CompaniesService {
 
     return this.http
       .get(
-      '/api/companies'
+        this.apiHost + '/api/companies'
       )
       .map(
       resp => resp.json()
@@ -31,7 +33,7 @@ export class CompaniesService {
 
     return this.http
       .get(
-        '/api/companies/' + id 
+        this.apiHost + '/api/companies/' + id 
       )
       .map(
       resp => resp.json()
@@ -43,7 +45,7 @@ export class CompaniesService {
     console.log('CompaniesService.createCompany: ' + Company.name);
 
     return this.http
-      .post('/api/companies', company)
+      .post(this.apiHost + '/api/companies', company)
       .map(
       resp => {
         if (resp.status == 201) {
@@ -61,7 +63,7 @@ export class CompaniesService {
 
     return this.http
       .put(
-        '/api/companies/' + company.id, company
+        this.apiHost + '/api/companies/' + company.id, company
       )
       .map(
       resp => {
@@ -80,7 +82,7 @@ export class CompaniesService {
 
     return this.http
       .delete(
-        '/api/companies/' + companyId
+        this.apiHost + '/api/companies/' + companyId
       )
       .map(
       resp => {

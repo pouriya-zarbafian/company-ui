@@ -3,7 +3,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 
 import { HttpModule, RequestOptions } from '@angular/http';
-import { AuthRequestOptions } from './services/AuthRequestOptions';
 
 import { CompanyMaterialModule } from './company-material/company-material.module';
 
@@ -18,7 +17,7 @@ import { CompanyEditComponent } from './company-edit/company-edit.component';
   declarations: [
     AppComponent,
     CompanyListComponent,
-    CompanyEditComponent
+    CompanyEditComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,8 +27,7 @@ import { CompanyEditComponent } from './company-edit/company-edit.component';
     AppRoutingModule
   ],
   providers: [
-    CompaniesService,
-    { provide: RequestOptions, useClass: AuthRequestOptions }
+    CompaniesService
   ],
   bootstrap: [ AppComponent ]
 })
