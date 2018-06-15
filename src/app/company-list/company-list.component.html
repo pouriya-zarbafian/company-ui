@@ -7,7 +7,7 @@
       <mat-list-item><div class="cmp-link" routerLink="/companies/edit/{{company.id}}">{{company.name}}</div></mat-list-item>
     </td>
     <td>
-        <button mat-button (click)=deleteCompany(company.id)>DELETE</button>
+        <button mat-button (click)="deleteCompany(company.id)">DELETE</button>
     </td>
   </tr>
   </table>
