@@ -108,8 +108,14 @@ export class CompanyEditComponent implements OnInit {
 
     this.companiesService
       .addOwner(this.company, this.selectedOwner)
-      .subscribe(data => {
-        this.company.owners = data.owners;
-      });
+      .subscribe(
+        data => {
+          this.company.owners = data.owners;
+          this.openSnackBar('Owner added successfully!', '');
+        },
+        error => {
+          this.openSnackBar('', 'Error while adding owner.');
+        }
+      );
   }
 }
