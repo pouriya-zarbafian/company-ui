@@ -26,4 +26,3 @@ import {
   ],
 })
 export class CompanyMaterialModule { }
-
